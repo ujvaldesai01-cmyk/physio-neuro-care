@@ -336,11 +336,11 @@ h2 {
     font-size: 2rem !important;
     line-height: 1.2;
   }
-  
+
   h3 {
     font-size: 1.5rem !important;
   }
-  
+
   p {
     font-size: 1rem !important;
   }
@@ -348,6 +348,14 @@ h2 {
   /* Layout Adjustments */
   .container {
     padding: 0 1.25rem;
+  }
+
+  .page-wrapper {
+    padding-top: 130px !important;
+    /* Extra space for mobile navbar */
+    padding-bottom: 4rem !important;
+    position: relative;
+    overflow-x: hidden;
   }
 
   section {
@@ -372,31 +380,31 @@ h2 {
     display: flex !important;
     flex-direction: column;
   }
-  
+
   /* Hero Specifics */
   .hero-grid {
     grid-template-columns: 1fr !important;
     text-align: center;
     gap: 3rem !important;
   }
-  
-  .hero-grid > div:first-child {
+
+  .hero-grid>div:first-child {
     order: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .hero-grid .hero-visual {
     order: 2;
     height: 400px !important;
   }
-  
+
   .hero-grid p {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .hero-grid .btn-group {
     justify-content: center;
   }
@@ -440,12 +448,12 @@ h2 {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
-  
+
   .mobile-toggle {
     z-index: 1001;
     position: relative;
   }
-  
+
   .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -473,7 +481,7 @@ h2 {
     padding: 0.875rem 1.5rem;
     justify-content: center;
   }
-  
+
   .hero-visual {
     height: 300px !important;
   }

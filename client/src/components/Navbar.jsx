@@ -21,12 +21,12 @@ const Navbar = () => {
         width: isScrolled ? '90%' : '100%',
         maxWidth: 'var(--container-width)',
         margin: '0 auto',
-        zIndex: 1000,
+        zIndex: 9999,
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        background: isScrolled ? 'rgba(255, 255, 255, 0.85)' : 'transparent',
+        background: isScrolled ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0)',
         backdropFilter: isScrolled ? 'blur(16px)' : 'none',
         borderRadius: isScrolled ? '50px' : '0',
-        padding: isScrolled ? '0.75rem 2rem' : '2rem 2rem',
+        padding: isScrolled ? '0.75rem 2rem' : '1.5rem 2rem',
         boxShadow: isScrolled ? 'var(--shadow-lg)' : 'none',
         border: isScrolled ? '1px solid rgba(255,255,255,0.5)' : 'none'
     };
@@ -34,7 +34,7 @@ const Navbar = () => {
     return (
         <nav style={navbarStyle}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'var(--text-main)' }}>
+                <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'var(--text-main)', zIndex: 10002 }}>
                     <div style={{
                         background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)',
                         padding: '0.6rem',
@@ -74,43 +74,60 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button onClick={() => setIsMobileOpen(!isMobileOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'none' }} className="mobile-toggle">
-                    {isMobileOpen ? <X size={28} color="var(--text-main)" /> : <Menu size={28} color="var(--text-main)" />}
+                <button onClick={() => setIsMobileOpen(!isMobileOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'none', zIndex: 10002 }} className="mobile-toggle">
+                    {isMobileOpen ? <X size={32} color="var(--text-main)" /> : <Menu size={32} color="var(--text-main)" />}
                 </button>
             </div>
 
             {/* Mobile Menu Overlay */}
-            {/* Mobile Menu Overlay */}
             {isMobileOpen && (
-                <div className="mobile-menu-overlay">
-                    {['Home', 'About', 'Services', 'Contact'].map((item) => (
-                        <a key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} onClick={() => setIsMobileOpen(false)}
-                            style={{
-                                textDecoration: 'none',
-                                color: 'var(--text-main)',
-                                fontWeight: '700',
-                                fontSize: '2rem',
-                                textAlign: 'center',
-                                padding: '1rem',
-                                width: '100%'
-                            }}>
-                            {item}
-                        </a>
-                    ))}
-                    <div style={{ marginTop: '2rem', width: '100%' }}>
-                        <a href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                            Book Appointment
-                        </a>
+                <div className="mobile-menu-overlay" style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    background: 'linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%)',
+                    zIndex: 10001,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '2rem',
+                    animation: 'fadeIn 0.3s ease-out'
+                }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center', width: '100%', maxWidth: '300px' }}>
+                        {['Home', 'About', 'Services', 'Contact'].map((item, index) => (
+                            <a key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                                onClick={() => setIsMobileOpen(false)}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'var(--text-main)',
+                                    fontWeight: '800',
+                                    fontSize: '2.5rem',
+                                    letterSpacing: '-0.02em',
+                                    animation: `slideUp 0.4s ease-out ${index * 0.1}s backwards`
+                                }}>
+                                {item}
+                            </a>
+                        ))}
+                        <div style={{ marginTop: '2rem', animation: 'slideUp 0.4s ease-out 0.4s backwards' }}>
+                            <a href="/contact" className="btn btn-primary" style={{ width: '100%', padding: '1.25rem', fontSize: '1.1rem', justifyContent: 'center', boxShadow: '0 20px 40px -10px rgba(15, 118, 110, 0.4)' }}>
+                                Book Appointment
+                            </a>
+                        </div>
                     </div>
                 </div>
             )}
 
             <style>{`
-        @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
-          .mobile-toggle { display: block !important; }
-        }
-      `}</style>
+                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+                @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+                @media (max-width: 768px) {
+                  .hidden-mobile { display: none !important; }
+                  .mobile-toggle { display: block !important; }
+                }
+            `}</style>
         </nav>
     );
 };

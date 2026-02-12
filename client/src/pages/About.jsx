@@ -18,7 +18,7 @@ const About = () => {
     };
 
     return (
-        <div className="container" style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
+        <div className="container page-wrapper">
             {/* Header */}
             <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
                 <motion.div
@@ -65,6 +65,7 @@ const About = () => {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.5 }}
                         whileHover={{ scale: 1.05 }}
+                        className="doctor-badge"
                         style={{
                             position: 'absolute', bottom: '-20px', right: '-20px', background: 'white', padding: '1.5rem', borderRadius: '16px', boxShadow: 'var(--shadow-lg)', border: '1px solid #f1f5f9'
                         }}
@@ -122,6 +123,7 @@ const About = () => {
                     .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
                     .about-grid > div:first-child { order: 2; }
                     .about-grid > div:last-child { order: 1; margin-bottom: 2rem; }
+                    .doctor-badge { right: 0 !important; bottom: -1.5rem !important; padding: 1rem !important; }
                 }
             `}</style>
         </div>

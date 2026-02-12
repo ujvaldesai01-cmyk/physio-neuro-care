@@ -69,7 +69,7 @@ const Contact = () => {
     });
 
     return (
-        <div style={{ position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '4rem' }}>
+        <div className="page-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
             {/* Decorative Background */}
             <div className="blob blob-1" style={{ top: '0', right: '-10%' }}></div>
             <div className="blob blob-2" style={{ bottom: '0', left: '-10%' }}></div>

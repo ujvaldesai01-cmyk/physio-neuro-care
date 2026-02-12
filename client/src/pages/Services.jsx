@@ -50,7 +50,7 @@ const Services = () => {
     };
 
     return (
-        <div style={{ paddingTop: '80px', paddingBottom: '4rem', position: 'relative', overflow: 'hidden' }}>
+        <div className="page-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
             <div className="blob blob-1" style={{ top: '-10%', left: '-10%' }}></div>
             <div className="blob blob-2" style={{ bottom: '10%', right: '-10%' }}></div>
 
