@@ -69,13 +69,13 @@ const Contact = () => {
     });
 
     return (
-        <div style={{ position: 'relative', overflow: 'hidden', paddingTop: '120px', paddingBottom: '6rem' }}>
+        <div style={{ position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '4rem' }}>
             {/* Decorative Background */}
             <div className="blob blob-1" style={{ top: '0', right: '-10%' }}></div>
             <div className="blob blob-2" style={{ bottom: '0', left: '-10%' }}></div>
 
-            <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+            <div className="container contact-grid" style={{ position: 'relative', zIndex: 2 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }} className="grid-layout">
 
                     {/* Contact Info Side */}
                     <div className="animate-in" style={{ animationDelay: '0.1s' }}>
@@ -238,7 +238,8 @@ const Contact = () => {
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .animate-spin { animation: spin 1s linear infinite; }
         @media (max-width: 900px) {
-          .container > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .grid-layout { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .grid-layout > div:first-child { margin-bottom: 2rem; }
         }
       `}</style>
         </div>

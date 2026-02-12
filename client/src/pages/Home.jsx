@@ -321,11 +321,11 @@ const Home = () => {
             </section>
 
             {/* CTA Section */}
-            <section style={{ padding: '8rem 0', textAlign: 'center' }}>
+            <section style={{ padding: '6rem 0', textAlign: 'center' }}>
                 <div className="container">
                     <motion.div
                         whileHover={{ scale: 1.02 }}
-                        className="card-glass"
+                        className="card-glass cta-card"
                         style={{
                             padding: '5rem',
                             borderRadius: '3rem',
@@ -349,6 +349,11 @@ const Home = () => {
                     .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
                     .hero-grid > div:first-child { display: flex; flex-direction: column; alignItems: center; }
                     .hero-grid p { margin-left: auto; margin-right: auto; }
+                    .hero-visual { height: 400px !important; margin-top: 2rem; }
+                }
+                @media (max-width: 768px) {
+                    .cta-card { padding: 2rem !important; }
+                    h2 { font-size: 2.5rem !important; }
                 }
             `}</style>
         </div>

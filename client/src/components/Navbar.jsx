@@ -80,30 +80,28 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Overlay */}
+            {/* Mobile Menu Overlay */}
             {isMobileOpen && (
-                <div style={{
-                    position: 'absolute',
-                    top: '120%',
-                    left: '0',
-                    width: '100%',
-                    background: 'rgba(255,255,255,0.95)',
-                    backdropFilter: 'blur(16px)',
-                    padding: '2rem',
-                    borderRadius: '24px',
-                    boxShadow: 'var(--shadow-xl)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1.5rem',
-                    border: '1px solid rgba(255,255,255,0.5)',
-                    transformOrigin: 'top center',
-                    animation: 'fadeIn 0.3s ease'
-                }}>
+                <div className="mobile-menu-overlay">
                     {['Home', 'About', 'Services', 'Contact'].map((item) => (
                         <a key={item} href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} onClick={() => setIsMobileOpen(false)}
-                            style={{ textDecoration: 'none', color: 'var(--text-main)', fontWeight: '700', fontSize: '1.25rem', textAlign: 'center' }}>
+                            style={{
+                                textDecoration: 'none',
+                                color: 'var(--text-main)',
+                                fontWeight: '700',
+                                fontSize: '2rem',
+                                textAlign: 'center',
+                                padding: '1rem',
+                                width: '100%'
+                            }}>
                             {item}
                         </a>
                     ))}
+                    <div style={{ marginTop: '2rem', width: '100%' }}>
+                        <a href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                            Book Appointment
+                        </a>
+                    </div>
                 </div>
             )}
 

@@ -305,6 +305,10 @@ h2 {
    Responsive Design Breakpoints
    ========================================= */
 
+/* =========================================
+   Responsive Design Breakpoints
+   ========================================= */
+
 @media (max-width: 1024px) {
   :root {
     --container-width: 90%;
@@ -312,7 +316,6 @@ h2 {
 
   h1 {
     font-size: 3.5rem;
-    /* Fallback */
   }
 }
 
@@ -325,17 +328,30 @@ h2 {
   /* Typography Scaling */
   h1 {
     font-size: 2.5rem !important;
-    /* Force smaller size on mobile */
     letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
   h2 {
     font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
   }
 
   /* Layout Adjustments */
   .container {
     padding: 0 1.25rem;
+  }
+
+  section {
+    padding: 4rem 0 !important;
   }
 
   .card,
@@ -355,6 +371,34 @@ h2 {
     grid-template-columns: 1fr !important;
     display: flex !important;
     flex-direction: column;
+  }
+  
+  /* Hero Specifics */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 3rem !important;
+  }
+  
+  .hero-grid > div:first-child {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-grid .hero-visual {
+    order: 2;
+    height: 400px !important;
+  }
+  
+  .hero-grid p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-grid .btn-group {
+    justify-content: center;
   }
 
   /* Blob Adjustments */
@@ -396,6 +440,27 @@ h2 {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
+  
+  .mobile-toggle {
+    z-index: 1001;
+    position: relative;
+  }
+  
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -406,5 +471,10 @@ h2 {
   .btn {
     width: 100%;
     padding: 0.875rem 1.5rem;
+    justify-content: center;
+  }
+  
+  .hero-visual {
+    height: 300px !important;
   }
 }
