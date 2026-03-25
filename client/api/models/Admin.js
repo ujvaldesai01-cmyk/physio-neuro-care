@@ -5,4 +5,4 @@ const adminSchema = new mongoose.Schema({
     password: { type: String, required: true } // In real project, should be hashed
 });
 
-module.exports = mongoose.model('Admin', adminSchema);
+module.exports = mongoose.models.Admin || mongoose.model('Admin', adminSchema);

@@ -14,4 +14,4 @@ const appointmentSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Appointment', appointmentSchema);
+module.exports = mongoose.models.Appointment || mongoose.model('Appointment', appointmentSchema);
