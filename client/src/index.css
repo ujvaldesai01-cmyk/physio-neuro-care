@@ -103,6 +103,13 @@ h2 {
   padding: 0 2rem;
 }
 
+.page-wrapper {
+  padding-top: 150px;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
 .text-gradient {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 50%, var(--secondary) 100%);
   -webkit-background-clip: text;
@@ -352,10 +359,6 @@ h2 {
 
   .page-wrapper {
     padding-top: 130px !important;
-    /* Extra space for mobile navbar */
-    padding-bottom: 4rem !important;
-    position: relative;
-    overflow-x: hidden;
   }
 
   section {
