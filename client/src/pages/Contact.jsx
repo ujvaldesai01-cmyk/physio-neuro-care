@@ -38,12 +38,24 @@ const Contact = () => {
                         timeStyle: 'short'
                     });
                     
-                    const waMessage = `*New Appointment Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date & Time:* ${formattedDate}%0A*Service:* ${formData.service}%0A*Notes:* ${formData.message || 'None'}`;
-                    const whatsappUrl = `https://wa.me/919512346056?text=${waMessage}`;
-                    
-                    window.open(whatsappUrl, '_blank');
+                    // Silent background email using FormSubmit AJAX
+                    await fetch("https://formsubmit.co/ajax/riddhishah1903@gmail.com", {
+                        method: "POST",
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            _subject: `New Appointment Booking: ${formData.name}`,
+                            Patient_Name: formData.name,
+                            Phone_Number: formData.phone,
+                            Requested_Time: formattedDate,
+                            Service: formData.service,
+                            Notes: formData.message || 'None'
+                        })
+                    });
                 } catch (e) {
-                    console.error("WhatsApp redirect failed", e);
+                    console.error("Email dispatch failed", e);
                 }
 
                 setFormData({ name: '', phone: '', service: '', date: '', message: '' });
