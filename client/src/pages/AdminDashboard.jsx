@@ -18,7 +18,7 @@ const AdminDashboard = () => {
     const fetchAppointments = async () => {
         try {
             // In real app, send token in headers
-            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/appointments`);
+            const res = await fetch(`/api/appointments`);
             const data = await res.json();
             setAppointments(data);
         } catch (err) {

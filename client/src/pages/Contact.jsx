@@ -20,7 +20,7 @@ const Contact = () => {
         setError('');
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/appointments`, {
+            const response = await fetch(`/api/appointments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
