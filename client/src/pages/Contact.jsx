@@ -31,6 +31,21 @@ const Contact = () => {
 
             if (response.ok) {
                 setSubmitted(true);
+                
+                try {
+                    const formattedDate = new Date(formData.date).toLocaleString('en-IN', {
+                        dateStyle: 'medium',
+                        timeStyle: 'short'
+                    });
+                    
+                    const waMessage = `*New Appointment Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date & Time:* ${formattedDate}%0A*Service:* ${formData.service}%0A*Notes:* ${formData.message || 'None'}`;
+                    const whatsappUrl = `https://wa.me/919512346056?text=${waMessage}`;
+                    
+                    window.open(whatsappUrl, '_blank');
+                } catch (e) {
+                    console.error("WhatsApp redirect failed", e);
+                }
+
                 setFormData({ name: '', phone: '', service: '', date: '', message: '' });
             } else {
                 setError('Something went wrong. Please try again.');
@@ -179,7 +194,7 @@ const Contact = () => {
                                         <div style={{ position: 'relative' }}>
                                             <Calendar size={20} style={iconStyle('date')} />
                                             <input
-                                                type="date"
+                                                type="datetime-local"
                                                 name="date"
                                                 required
                                                 style={inputStyle('date')}

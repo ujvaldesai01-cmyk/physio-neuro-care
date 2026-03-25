@@ -54,7 +54,7 @@ const AdminDashboard = () => {
                                     <h4 style={{ fontSize: '1.25rem' }}>{appt.patientName}</h4>
                                     <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
                                         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Phone size={16} /> {appt.phone}</span>
-                                        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Calendar size={16} /> {new Date(appt.date).toLocaleDateString()}</span>
+                                        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Calendar size={16} /> {new Date(appt.date).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}</span>
                                     </div>
                                     <div style={{ marginTop: '0.5rem' }}>
                                         <span style={{ background: '#e0f2fe', color: '#0369a1', padding: '0.25rem 0.75rem', borderRadius: '12px', fontSize: '0.875rem' }}>
