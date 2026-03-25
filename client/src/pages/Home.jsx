@@ -81,12 +81,16 @@ const Home = () => {
                             </motion.p>
 
                             <motion.div variants={fadeInUp} style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                                <Link to="/contact" className="btn btn-primary">
-                                    Book Initial Assessment <ArrowRight size={20} />
-                                </Link>
-                                <Link to="/services" className="btn btn-secondary">
-                                    Explore Therapies
-                                </Link>
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                                    <Link to="/contact" className="btn btn-primary">
+                                        Book Initial Assessment <ArrowRight size={20} />
+                                    </Link>
+                                </motion.div>
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                                    <Link to="/services" className="btn btn-secondary">
+                                        Explore Therapies
+                                    </Link>
+                                </motion.div>
                             </motion.div>
 
                             <motion.div variants={fadeInUp} style={{ marginTop: '4rem', display: 'flex', gap: '3rem' }}>
@@ -120,13 +124,16 @@ const Home = () => {
 
                             <motion.div
                                 className="card-glass float-hover"
+                                whileHover={{ scale: 1.04, rotate: 1 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                 style={{
                                     padding: '3rem',
                                     width: '100%',
                                     maxWidth: '450px',
                                     borderTop: '6px solid var(--primary)',
                                     position: 'relative',
-                                    zIndex: 2
+                                    zIndex: 2,
+                                    boxShadow: 'var(--shadow-xl)'
                                 }}
                             >
                                 <div style={{ position: 'absolute', top: '-30px', right: '-30px', background: 'var(--accent)', color: 'white', padding: '1.5rem', borderRadius: '50%', fontWeight: '700', transform: 'rotate(15deg)', boxShadow: 'var(--shadow-lg)' }}>
@@ -225,7 +232,9 @@ const Home = () => {
                         ].map((feature, i) => (
                             <motion.div
                                 key={i}
-                                whileHover={{ y: -15 }}
+                                whileHover={{ y: -15, scale: 1.03 }}
+                                whileTap={{ scale: 0.98 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                 className="card"
                                 style={{
                                     padding: '3rem',
@@ -324,7 +333,8 @@ const Home = () => {
             <section style={{ padding: '6rem 0', textAlign: 'center' }}>
                 <div className="container">
                     <motion.div
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.03, y: -10 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         className="card-glass cta-card"
                         style={{
                             padding: '5rem',
@@ -337,9 +347,11 @@ const Home = () => {
                         <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
                             Your first consultation is the biggest step towards recovery. Let's discuss your goals and how we can achieve them together.
                         </p>
-                        <Link to="/contact" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem' }}>
-                            Schedule Appointment
-                        </Link>
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <Link to="/contact" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1.25rem' }}>
+                                Schedule Appointment
+                            </Link>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>

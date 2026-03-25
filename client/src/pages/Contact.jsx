@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Calendar, CheckCircle, Loader2, User, FileText, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -91,7 +92,7 @@ const Contact = () => {
                                 { icon: <Mail size={24} />, title: 'Email Support', info: 'hello@neurophysio.care', sub: '24/7 Response' },
                                 { icon: <MapPin size={24} />, title: 'Visit Clinic', info: '123 Recovery Lane', sub: 'Medical District, Pune' }
                             ].map((item, i) => (
-                                <div key={i} className="card-glass" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', padding: '1.5rem', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.6)' }}>
+                                <motion.div key={i} whileHover={{ x: 10, scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }} className="card-glass" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', padding: '1.5rem', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.6)', cursor: 'pointer' }}>
                                     <div style={{
                                         padding: '1rem',
                                         background: 'var(--primary)',
@@ -106,7 +107,7 @@ const Contact = () => {
                                         <p style={{ fontSize: '1.25rem', fontWeight: '700', margin: '0.2rem 0' }}>{item.info}</p>
                                         <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{item.sub}</span>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
@@ -224,9 +225,9 @@ const Contact = () => {
                                         ></textarea>
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary" disabled={loading} style={{ width: '100%', padding: '1.25rem', marginTop: '1rem', fontSize: '1.1rem' }}>
+                                    <motion.button whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} type="submit" className="btn btn-primary" disabled={loading} style={{ width: '100%', padding: '1.25rem', marginTop: '1rem', fontSize: '1.1rem' }}>
                                         {loading ? <Loader2 className="animate-spin" /> : <>Confirm Appointment</>}
-                                    </button>
+                                    </motion.button>
                                 </div>
                             </form>
                         )}

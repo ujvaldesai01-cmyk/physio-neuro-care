@@ -105,8 +105,9 @@ const About = () => {
                         <motion.div
                             key={i}
                             variants={fadeInUp}
-                            whileHover={{ y: -5 }}
-                            style={{ textAlign: 'center', padding: '1.5rem' }}
+                            whileHover={{ y: -10, scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            style={{ textAlign: 'center', padding: '1.5rem', cursor: 'default' }}
                         >
                             <div style={{ width: '60px', height: '60px', margin: '0 auto 1.5rem', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', background: '#ccfbf1' }}>
                                 {item.icon}

@@ -91,9 +91,11 @@ const Services = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            whileHover={{ y: -10 }}
+                            whileHover={{ y: -12, scale: 1.03 }}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             className="card card-glass"
-                            style={{ padding: '3rem', position: 'relative', overflow: 'hidden' }}
+                            style={{ padding: '3rem', position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
                         >
                             <div style={{
                                 width: '80px',
